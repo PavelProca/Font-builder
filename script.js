@@ -1,15 +1,22 @@
-function change(dropdown) {
-	var asd = document.getElementsByTagName('select')[dropdown-1].value;
-	var dsa = document.getElementsByClassName('text-wrapper')[0];
+function change(row, dropdown, dropdownValue) {
+	var rowNumber = document.getElementsByClassName('text-wrapper')[Number(row) + 1];
+
 	switch (dropdown) {
-		case 1:
-			dsa.style.fontSize = asd;
+		case 'size':
+			rowNumber.style.fontSize = dropdownValue;
 			break;
-		case 2:
-			dsa.style.fontWeight = asd;
+		case 'weight':
+			rowNumber.style.fontWeight = dropdownValue;
 			break;
-		case 3:
-			dsa.style.color = asd;
+		case 'color':
+			rowNumber.style.color = dropdownValue;
+			break;
+		case 'transform':
+			rowNumber.style.textTransform = dropdownValue;
+			break;
+		case 'alignment':
+			rowNumber.style.textAlign = dropdownValue;
 			break;
 	}
 }
+

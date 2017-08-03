@@ -2,37 +2,71 @@
 <html>
 <head>
 	<title>Font builder</title>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="row">
-		<div class="text-wrapper">
-			h1. display
-		</div>
-		<div class="select-wrapper">
-			<select onMouseUp="change(1)">
-				<option>12px</option>
-				<option>22px</option>
-				<option>32px</option>
-			</select>
-		</div>
-		<div class="select-wrapper">
-			<select onMouseUp="change(2)">
-				<option value="400">regular</option>
-				<option value="300">light</option>
-				<option value="600">semi-bold</option>
-				<option value="700">bold</option>
-			</select>
-		</div>
-		<div class="select-wrapper">
-			<select onMouseUp="change(3)">
-				<option>Black</option>
-				<option>Red</option>
-				<option>Green</option>
-				<option>Blue</option>
-			</select>
+	<div class="wrapper">
+		<div class="hidden-row">
+			<div class="text-wrapper">
+				h1. display
+			</div>
+			<div class="select-wrapper">
+				<select class="size">
+					<option>12px</option>
+					<option>22px</option>
+					<option>32px</option>
+				</select>
+			</div>
+			<div class="select-wrapper">
+				<select class="weight">
+					<option value="400">regular</option>
+					<option value="300">light</option>
+					<option value="600">semi-bold</option>
+					<option value="700">bold</option>
+				</select>
+			</div>
+			<div class="select-wrapper">
+				<select class="color">
+					<option>Black</option>
+					<option>Red</option>
+					<option>Green</option>
+					<option>Blue</option>
+				</select>
+			</div>
+			<div class="select-wrapper">
+				<select class="transform">
+					<option>lowercase</option>
+					<option>capitalize</option>
+					<option>uppercase</option>
+				</select>
+			</div>
+			<div class="select-wrapper">
+				<select class="alignment">
+					<option>left</option>
+					<option>center</option>
+					<option>right</option>
+				</select>
+			</div>
 		</div>
 	</div>
+
+	<button onClick="god()">Create new row</button>
+
+<script type="text/javascript">
+		function god() {
+			var rowIDs = document.getElementsByClassName('row');
+			var div = document.getElementsByClassName('hidden-row')[0];
+			var div2 = div.cloneNode(true);
+			div2.className = 'row';
+			div2.id = rowIDs.length;
+			div.parentNode.insertBefore(div2, div.parentNode.lastChild);
+			$('.row').on('change', function (e) {
+				change(this.id, e.target.className, e.target.value);
+			});
+		}
+</script>
+
 </body>
 </html>

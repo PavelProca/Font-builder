@@ -6,10 +6,26 @@
 	font-size: 12px;
 	font-family: 'Open Sans', sans-serif;
 }
+.wrapper {
+	max-width: 900px;
+	margin: 0 auto;
+	background: red;
+}
 .row {
 	display: flex;
 	justify-content: space-between;
-	max-width: 1000px;
-	margin: 0 auto;
 	background: lightgreen;
+	margin-bottom: 20px;
+}
+.text-wrapper, .select-wrapper {
+	width: 150px;
+}
+
+button {
+	display: block;
+	margin: 0 auto;
+}
+
+.hidden-row {
+	display: none;
 }
