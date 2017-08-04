@@ -10,43 +10,26 @@
 	<div class="wrapper">
 		<div class="hidden-row">
 			<div class="text-wrapper">
-				h1. display
+				Lorem ipsum
 			</div>
 			<div class="select-wrapper">
 				<select class="size">
-					<option>12px</option>
-					<option>22px</option>
-					<option>32px</option>
 				</select>
 			</div>
 			<div class="select-wrapper">
 				<select class="weight">
-					<option value="400">regular</option>
-					<option value="300">light</option>
-					<option value="600">semi-bold</option>
-					<option value="700">bold</option>
 				</select>
 			</div>
 			<div class="select-wrapper">
 				<select class="color">
-					<option>Black</option>
-					<option>Red</option>
-					<option>Green</option>
-					<option>Blue</option>
 				</select>
 			</div>
 			<div class="select-wrapper">
 				<select class="transform">
-					<option>lowercase</option>
-					<option>capitalize</option>
-					<option>uppercase</option>
 				</select>
 			</div>
 			<div class="select-wrapper">
 				<select class="alignment">
-					<option>left</option>
-					<option>center</option>
-					<option>right</option>
 				</select>
 			</div>
 		</div>
@@ -55,17 +38,75 @@
 	<button onClick="god()">Create new row</button>
 
 <script type="text/javascript">
-		function god() {
-			var rowIDs = document.getElementsByClassName('row');
-			var div = document.getElementsByClassName('hidden-row')[0];
-			var div2 = div.cloneNode(true);
-			div2.className = 'row';
-			div2.id = rowIDs.length;
-			div.parentNode.insertBefore(div2, div.parentNode.lastChild);
-			$('.row').on('change', function (e) {
-				change(this.id, e.target.className, e.target.value);
-			});
-		}
+	// OPEN XML FILE
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = ActiveXObject("Microsoft.XMLHTTP");
+	};
+	xmlhttp.open("GET", "options.xml", false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+
+	// GET ALL TYPES OF DROPDOWN
+	var sizeDrop = document.getElementsByClassName('size')[0];
+	var weightDrop = document.getElementsByClassName('weight')[0];
+	var colorDrop = document.getElementsByClassName('color')[0];
+	var transformDrop = document.getElementsByClassName('transform')[0];
+	var alignmentDrop = document.getElementsByClassName('alignment')[0];
+
+	var sizes = xmlDoc.getElementsByTagName('size');
+	var weights = xmlDoc.getElementsByTagName('weeight');
+	var colors = xmlDoc.getElementsByTagName('color');
+	var transformations = xmlDoc.getElementsByTagName('transform');
+	var alignments = xmlDoc.getElementsByTagName('align');
+	var option;
+
+	for (var i = 0; i < sizes.length; i++) {
+		option = document.createElement('option');
+		option.innerHTML = sizes[i].childNodes[0].nodeValue;
+		option.value = sizes[i].getAttribute('value');
+		sizeDrop.appendChild(option);
+	}
+	for (var i = 0; i < weights.length; i++) {
+		option = document.createElement('option');
+		option.innerHTML = weights[i].childNodes[0].nodeValue;
+		option.value = weights[i].getAttribute('value');
+		weightDrop.appendChild(option);
+	}
+	for (var i = 0; i < colors.length; i++) {
+		option = document.createElement('option');
+		option.innerHTML = colors[i].childNodes[0].nodeValue;
+		option.value = colors[i].getAttribute('value');
+		colorDrop.appendChild(option);
+	}
+	for (var i = 0; i < transformations.length; i++) {
+		option = document.createElement('option');
+		option.innerHTML = transformations[i].childNodes[0].nodeValue;
+		option.value = transformations[i].getAttribute('value');
+		transformDrop.appendChild(option);
+	}
+	for (var i = 0; i < alignments.length; i++) {
+		option = document.createElement('option');
+		option.innerHTML = alignments[i].childNodes[0].nodeValue;
+		option.value = alignments[i].getAttribute('value');
+		alignmentDrop.appendChild(option);
+	}
+
+	// getAttribute('name')
+	// FUNCTION THAT MAKES ROWS
+	function god() {
+		var rowIDs = document.getElementsByClassName('row');
+		var div = document.getElementsByClassName('hidden-row')[0];
+		var div2 = div.cloneNode(true);
+		div2.className = 'row';
+		div2.id = rowIDs.length;
+		div.parentNode.insertBefore(div2, div.parentNode.lastChild);
+		// FUNCTION THAT MAKES CHANGES
+		$('.row').on('change', function (e) {
+			change(this.id, e.target.className, e.target.value);
+		});
+	}
 </script>
 
 </body>

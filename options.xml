@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<options>
+	<sizes>
+		<size value="12px">12px</size>
+		<size value="24px">24px</size>
+	</sizes>
+	<weeights>
+		<weeight value="400">regular</weeight>
+		<weeight value="700">bold</weeight>
+	</weeights>
+	<colors>
+		<color value="black">Black</color>
+		<color value="red">Red</color>
+	</colors>
+	<transformations>
+		<transform value="none">none</transform>
+		<transform value="uppercase">uppercase</transform>
+	</transformations>
+	<alignments>
+		<align value="left">left</align>
+		<align value="right">right</align>
+	</alignments>
+</options>
