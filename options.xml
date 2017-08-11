@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <options>
 	<sizes>
+		<size value="11px">11px</size>
 		<size value="12px">12px</size>
-		<size value="24px">24px</size>
+		<size value="14px" selected="true">14px</size>
+		<size value="16px">16px</size>
+		<size value="24px">20px</size>
+		<size value="28px">28px</size>
 	</sizes>
 	<weeights>
 		<weeight value="400">regular</weeight>
@@ -18,6 +22,7 @@
 	</transformations>
 	<alignments>
 		<align value="left">left</align>
+		<align value="center">center</align>
 		<align value="right">right</align>
 	</alignments>
 </options>

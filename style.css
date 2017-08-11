@@ -7,7 +7,7 @@
 	font-family: 'Open Sans', sans-serif;
 }
 .wrapper {
-	max-width: 760px;
+	max-width: 860px;
 	margin: 0 auto;
 }
 .row, .header {
@@ -30,7 +30,10 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-
+.show-text {
+	width: 280px;
+	font-size: 14px;
+}
 .select-wrapper:last-child,
 .header-text-wrapper:last-child {margin-right: 0;}
 select {
@@ -40,7 +43,7 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	padding-right: 25px;
-	background: url(arrow.svg) no-repeat #eee;
+	background: url(arrow.svg) no-repeat;
 	background-position: 103% 50%;
 	box-sizing: border-box;
 }
